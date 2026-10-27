@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AICTE ValidateAI — AI-Assisted Decision Support Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            aicte: {
+              navy: '#1A365D',
+              blue: '#2B6CB0',
+              saffron: '#FF9933',
+              green: '#138808',
+              gold: '#D69E2E',
+              dark: '#0F172A',
+              light: '#F8FAFC'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- React 18 and Babel Standalone for direct local execution without build steps -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; }
+    .tricolor-bar { height: 4px; background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%); }
+    .badge-critical { background-color: #FEE2E2; color: #991B1B; border: 1px solid #F87171; }
+    .badge-high { background-color: #FFEDD5; color: #C2410C; border: 1px solid #FB923C; }
+    .badge-medium { background-color: #FEF3C7; color: #B45309; border: 1px solid #FCD34D; }
+    .badge-clean { background-color: #DCFCE7; color: #166534; border: 1px solid #86EFAC; }
+    .badge-review { background-color: #E0E7FF; color: #3730A3; border: 1px solid #A5B4FC; }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F1F5F9; }
+    ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800">
+  <div id="root"></div>
+  <script type="text/babel" src="/js/app.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{
+  "lang_name": "English",
+  "app_title": "AICTE ValidateAI",
+  "subtitle": "AI-Assisted Decision-Support Platform",
+  "org_title": "All India Council for Technical Education",
+  "govt_title": "Government of India",
+  "statutory_safeguard_title": "Statutory Safeguard",
+  "statutory_safeguard_banner": "All AI classifications, forensic ELA scores, and authority comparisons are PRELIMINARY INDICATORS. Final regulatory decisions strictly require confirmation by authorized AICTE Scrutiny Officers.",
+  "advisory_guardrail_active": "Advisory Guardrail Active",
+  "simulated_source_badge": "Simulated source",
+  
+  "nav": {
+    "scrutiny_desk": "📋 Scrutiny Desk Queue",
+    "dossier_inspector": "🔬 Dossier & Forensic Inspector",
+    "institution_portal": "🏛️ Institution Portal",
+    "infra_geofence": "🛰️ Infrastructure & Geofence",
+    "rules_admin": "⚖️ APH Norms & Config",
+    "evaluation_metrics": "📊 Live Evaluation Metrics",
+    "audit_trail": "🔒 Cryptographic Audit Chain",
+    "role_officer": "Scrutiny Officer (Dr. R. K. Seshadri)",
+    "role_institution": "Institution Applicant (Delhi Tech)",
+    "role_admin": "AICTE Bureau Director (Admin)"
+  },
+
+  "common": {
+    "pid": "Permanent ID",
+    "app_no": "Application No",
+    "institution": "Institution",
+    "status": "Status",
+    "risk": "Risk Level",
+    "score": "Score",
+    "actions": "Actions",
+    "search_placeholder": "Search by Institution, PID, Application No...",
+    "inspect": "Inspect Dossier 🔍",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "close": "Close",
+    "loading": "Loading...",
+    "acres": "Acres",
+    "mandatory": "Mandatory",
+    "verified": "VERIFIED",
+    "mismatch": "MISMATCH DETECTED",
+    "expired": "EXPIRED",
+    "deficient": "DEFICIENT",
+    "clean": "CLEAN",
+    "approved": "APPROVED",
+    "rejected": "REJECTED",
+    "manual_review": "MANUAL REVIEW REQUIRED",
+    "evc_recommended": "EVC INSPECTION RECOMMENDED"
+  },
+
+  "desk": {
+    "total_applications": "Total Applications (EoA 2026-27)",
+    "critical_risks": "Critical / High Risk Anomalies",
+    "authority_mismatches": "Authority Mismatches / Expired",
+    "clean_baselines": "Clean / Verified Baselines",
+    "all_filter": "All Applications",
+    "critical_filter": "🚨 Critical Risks",
+    "mismatch_filter": "⚠️ Authority Mismatches",
+    "expired_filter": "⏳ Expired Documents",
+    "clean_filter": "✅ Clean Baseline"
+  },
+
+  "dossier": {
+    "title": "Dossier & Forensic Document Inspector",
+    "overall_risk": "Overall AI Risk Score",
+    "officer_panel_btn": "✍️ Officer Decision Panel",
+    "checklist_progress": "APH 2024-27 Checklist Progress",
+    "view_ela": "View ELA Tamper Heatmap",
+    "hide_ela": "Hide ELA Heatmap",
+    "extracted_entities": "Extracted Document Entities (AI OCR)",
+    "field": "Field",
+    "value": "Extracted Value",
+    "confidence": "Conf.",
+    "anomalies_title": "Anomaly & Potential-Tampering Flags",
+    "authority_bridge": "Issuing-Authority Verification Bridge",
+    "query_ref": "Query Reference",
+    "official_finding": "Official Registry Finding",
+    "no_anomalies": "No tampering or metadata editing signatures detected in this document."
+  },
+
+  "officer_modal": {
+    "title": "Confirm Regulatory Scrutiny Decision",
+    "mandate": "Human-in-the-Loop Statutory Mandate: AI detections are advisory decision-support. Formal approval, deficiency issuance, or physical inspection requires documented officer justification.",
+    "select_decision": "Select Regulatory Decision:",
+    "approve_opt": "Grant Approval (EoA Recommended)",
+    "deficiency_opt": "Issue Formal Deficiency Notice",
+    "evc_opt": "Recommend Expert Visiting Committee (EVC) Physical Inspection",
+    "reject_opt": "Reject Application (Chapter VIII Violations)",
+    "remarks_label": "Mandatory Scrutiny Officer Remarks:",
+    "remarks_placeholder": "State legal grounds, verified registry checks, and reasons for this determination...",
+    "seal_btn": "Seal & Sign Decision 🔏"
+  },
+
+  "messages": {
+    "ALERT_FIRE_NOC_EXPIRED": "Fire Safety NOC {{ref}} issued by {{authority}} expired on {{expiry_date}}.",
+    "FLAG_ELA_TAMPERING": "Error Level Analysis detected digital text splice / altered validity date around '{{declared_date}}'.",
+    "FLAG_DUPLICATE_DOCUMENT": "Document duplication detected: Identical file hash recycled from institution {{conflicting_institution}} (PID: {{conflicting_pid}}).",
+    "FLAG_GHOST_FACULTY": "Cross-institution payroll fraud: {{count}} faculty member(s) simultaneously claimed by another institution.",
+    "FLAG_QR_MISMATCH": "Cryptographic QR Code signature validation failed against public key repository.",
+    "ALERT_LAND_DEFICIT": "Campus land shortfall: Available land {{actual}} Acres is below mandatory minimum {{required}} Acres for {{category}} tier.",
+    "ALERT_FSR_SHORTFALL": "Faculty-Student Ratio shortfall: Available ratio {{actual}} violates mandatory norm {{required}}.",
+    "ALERT_CADRE_DEFICIT": "Zero Professors found in department. Minimum 1 Professor is mandatory.",
+    "ALERT_TER_UNPAID": "Unpaid AICTE TER processing fee challan in BharatKosh clearinghouse.",
+    "ALERT_UNDERTAKING_MISSING": "Mandatory statutory undertaking missing: Anti-Ragging Affidavit under UGC Regulations."
+  }
+}

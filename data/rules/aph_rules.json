@@ -1,0 +1,82 @@
+{
+  "aph_version": "2024-2027",
+  "academic_year": "2026-2027",
+  "land_norms_acres": {
+    "Mega_Metro": 1.5,
+    "Urban": 2.5,
+    "Rural": 7.5
+  },
+  "fsr_norms": {
+    "Engineering_UG": 20,
+    "Engineering_PG": 12,
+    "Management_MBA": 20,
+    "Computer_Applications_MCA": 20,
+    "Pharmacy_BPharm": 15,
+    "Architecture_BArch": 10
+  },
+  "cadre_ratio": {
+    "Professor": 1,
+    "Associate_Professor": 2,
+    "Assistant_Professor": 6
+  },
+  "area_norms_sqm": {
+    "instructional_per_student": 4.5,
+    "min_admin_area": 1000,
+    "min_amenities_area": 800,
+    "min_library_area": 400,
+    "min_computer_center": 150
+  },
+  "mandatory_documents_by_category": {
+    "Extension_of_Approval_EoA": [
+      "FIRE_SAFETY_NOC",
+      "BUILDING_PLAN_OCCUPANCY",
+      "LAND_OWNERSHIP_DEED",
+      "AFFILIATING_UNIV_NOC",
+      "STATE_GOVT_DTE_NOC",
+      "FACULTY_PAYROLL_FORM16",
+      "TER_PAYMENT_RECEIPT",
+      "ANTI_RAGGING_AFFIDAVIT",
+      "DIVYANGJAN_ACCESSIBILITY_CERT"
+    ],
+    "Increase_in_Intake": [
+      "FIRE_SAFETY_NOC",
+      "BUILDING_PLAN_OCCUPANCY",
+      "LAND_OWNERSHIP_DEED",
+      "AFFILIATING_UNIV_NOC",
+      "STATE_GOVT_DTE_NOC",
+      "NBA_ACCREDITATION_CERT",
+      "FACULTY_PAYROLL_FORM16",
+      "ADDITIONAL_BUILTUP_AFFIDAVIT",
+      "TER_PAYMENT_RECEIPT",
+      "INFRASTRUCTURE_AUDIT_REPORT"
+    ],
+    "New_Programme": [
+      "FIRE_SAFETY_NOC",
+      "BUILDING_PLAN_OCCUPANCY",
+      "LAND_OWNERSHIP_DEED",
+      "AFFILIATING_UNIV_NOC",
+      "STATE_GOVT_DTE_NOC",
+      "FACULTY_APPOINTMENT_LETTERS",
+      "LAB_EQUIPMENT_PURCHASE_BILLS",
+      "TER_PAYMENT_RECEIPT",
+      "TRUST_SOCIETY_REGISTRATION",
+      "ENVIRONMENTAL_CLEARANCE_NOC"
+    ],
+    "Conversion_Diploma_to_Degree": [
+      "FIRE_SAFETY_NOC",
+      "BUILDING_PLAN_OCCUPANCY",
+      "LAND_OWNERSHIP_DEED",
+      "AFFILIATING_UNIV_NOC",
+      "STATE_GOVT_DTE_NOC",
+      "FACULTY_PAYROLL_FORM16",
+      "CONVERSION_GOVERNING_BODY_RES",
+      "TER_PAYMENT_RECEIPT"
+    ]
+  },
+  "forensic_thresholds": {
+    "ela_tampering_score_cutoff": 0.65,
+    "metadata_mismatch_penalty": 25,
+    "duplicate_hash_penalty": 40,
+    "geofence_tolerance_meters": 350
+  }
+}

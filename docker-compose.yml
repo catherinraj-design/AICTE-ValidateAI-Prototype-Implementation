@@ -1,0 +1,130 @@
+version: "3.8"
+
+services:
+  # 1. PostgreSQL 16 Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: aicte_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aicte_validate_ai
+      POSTGRES_USER: aicte_admin
+      POSTGRES_PASSWORD: aicte_secure_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aicte_admin -d aicte_validate_ai"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. Redis 7 Cache & Message Broker
+  redis:
+    image: redis:7-alpine
+    container_name: aicte_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 3. MinIO S3-Compatible File Storage
+  minio:
+    image: minio/minio:RELEASE.2024-01-18T22-51-28Z
+    container_name: aicte_minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minio_admin
+      MINIO_ROOT_PASSWORD: minio_secure_password_2026
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # 4. Mailpit Local Email Testing
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: aicte_mailpit
+    restart: unless-stopped
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  # 5. External Issuing-Authority Simulator Service
+  authority-simulator:
+    build:
+      context: .
+      dockerfile: services/authority_simulator/Dockerfile
+    container_name: aicte_authority_simulator
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      SIMULATOR_PORT: "8001"
+      SERVICE_LABEL: "Simulated source"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8001/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # 6. Backend API (FastAPI)
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: aicte_backend_api
+    restart: unless-stopped
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://aicte_admin:aicte_secure_password_2026@postgres:5432/aicte_validate_ai
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: minio_admin
+      MINIO_SECRET_KEY: minio_secure_password_2026
+      AUTHORITY_SIMULATOR_URL: http://authority-simulator:8001
+      ADVISORY_MODE: "ENFORCED"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      authority-simulator:
+        condition: service_started
+    volumes:
+      - .:/app
+
+  # 7. Frontend SPA (React + Vite + Tailwind)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: aicte_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_BASE: http://backend:8000
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
